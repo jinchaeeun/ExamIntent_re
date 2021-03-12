@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ExamIntent_re</string>
+    <string name="nothing">Nothing</string>
+    <string-array name="items">
+        <item>Go </item>
+        <item>Go With Data</item>
+        <item>Go With Object</item>
+        <item>Go Back</item>
+    </string-array>
+</resources>
