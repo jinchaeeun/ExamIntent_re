@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ExamIntent_re">
         <activity android:name=".GoActivity"></activity>
+        <activity android:name=".GoObjectActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Log.i(TAG, "onItemClick() OK");
+        if(D) Log.i(TAG, "onItemClick() OK");
         Intent intent;
         switch (position) {
             case AppConstant.ITEM_GO:
@@ -75,12 +75,21 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 names.add("Park");
                 names.add("Kwon");
 
-
                 intent.putExtra(AppConstant.KEY_NAMES, names);      //가져오는 것 GoActivity
                 startActivity(intent);
                 break;
+
             case AppConstant.ITEM_GO_WITH_OBJECT:
+                ArrayList<Person> persons = new ArrayList<Person>();
+                persons.add(new Person("Tom", "F", 10));
+                persons.add(new Person("Lee", "F", 35));
+                persons.add(new Person("Choi", "M", 14));
+
+                intent = new Intent(MainActivity.this, GoObjectActivity.class);
+                intent.putExtra(AppConstant.KEY_PERSONS, persons);
+                startActivity(intent);
                 break;
+
             case AppConstant.ITEM_GO_BACK:
                 break;
         }

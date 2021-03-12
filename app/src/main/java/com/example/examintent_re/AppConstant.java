@@ -11,8 +11,10 @@ public class AppConstant {
     // Data Key
     public static final String KEY_NAME = "NAME";
     public static final String KEY_PHONE = "PHONE";
+    public static final String KEY_NAMES = "NAMES"; // 대량의 데이터
 
-    public static final String KEY_NAMES = "NAMES";
-
+    //case AppConstant.ITEM_GO_WITH_OBJECT:
+    public static final String KEY_PERSON = "PERSON";
+    public static final String KEY_PERSONS = "PERSONS";
 
 }
