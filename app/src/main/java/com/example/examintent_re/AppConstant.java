@@ -8,6 +8,9 @@ public class AppConstant {
     public static final int ITEM_GO_WITH_OBJECT = 2;
     public static final int ITEM_GO_BACK = 3;
 
+    //Request Code
+    public static final int REQ_DATA_COD = 1000; //아무 값이나 쓰면 된다
+
     // Data Key
     public static final String KEY_NAME = "NAME";
     public static final String KEY_PHONE = "PHONE";

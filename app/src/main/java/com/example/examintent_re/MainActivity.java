@@ -1,5 +1,6 @@
 package com.example.examintent_re;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -51,6 +52,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         dataLST.setAdapter(adapter);
     }
 
+
+
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         if(D) Log.i(TAG, "onItemClick() OK");
@@ -91,11 +94,29 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 break;
 
             case AppConstant.ITEM_GO_BACK:
+                // 다른 Activity로 전환 후 결과 받아오기
+                intent = new Intent(MainActivity.this, GoBackActivity.class);
+                //intent.putExtra(AppConstant.KEY_PERSONS, intent);
+                startActivityForResult(intent, AppConstant.REQ_DATA_COD); //화면 되돌리기 뒤에 int 값은 개발자가 구분하기 위해 지정한 값
+                //결과를 받아주는 함수는 오버라이딩 메서드 onActivityResult
+
+
                 break;
         }
-
-
-
-
     }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode){
+            case AppConstant.REQ_DATA_COD:
+                if(resultCode == RESULT_OK) { //RESULT_OK가 왔다면 제대로 온 것
+                    Log.i(TAG, " RESULT DATA = " + data.getStringExtra(AppConstant.KEY_PHONE));
+                }else{
+                    Toast.makeText(MainActivity.this, "Fail", Toast.LENGTH_SHORT).show();
+                }
+                break;
+        }
+    }
+
 }
